@@ -1,0 +1,15 @@
+[ {
+        "title": "Naruto",
+        "year": "1998",
+        "genre": "action"
+    }, 
+    {
+        "title": "Darling in the Franxx",
+        "year": "2000",
+        "genre": "mecha, love"
+    },
+    {
+        "title": "Evangelion",
+        "year": "1994",
+        "genre": "mecha, action"
+    } ]
