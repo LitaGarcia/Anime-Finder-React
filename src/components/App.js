@@ -7,11 +7,13 @@ function App() {
   const [animeList, setAnimeList] = useState(dataAnime);
   const [searchFilter, setSearchFilter] = useState('');
   const [inputText, setInputText] = useState('');
+  const [favoriteAnimes, setFavoriteAnimes] = useState([]);
 
   const handleClick = (ev) => {
     ev.preventDefault();
     setSearchFilter(inputText);
   };
+
   const handleFilter = (ev) => {
     setInputText(ev.currentTarget.value);
   };
@@ -19,15 +21,44 @@ function App() {
   const filteredAnime = animeList.filter((anime) =>
     anime.title.toLowerCase().includes(searchFilter.toLowerCase())
   );
+  const handleFavorite = (ev) => {
+    ev.preventDefault();
+    const clickedAnimeId = ev.currentTarget.id;
+    const foundAnime = animeList.find((anime) => anime.id === clickedAnimeId);
+    favoriteAnimes.push(foundAnime);
+    setFavoriteAnimes([...favoriteAnimes]);
+  };
+
+  // const htmlLiFavAnime = foundAnime.map((anime) => {
+  //   let identifier = uuid();
+  //   <li key={identifier} id={identifier}>
+  //     <h2 className="title">{anime.title}</h2>
+  //     <img
+  //       src={anime.img}
+  //       title="carátula del anime"
+  //       alt="carátula del anime"
+  //       onClick={handleFavorite}
+  //     ></img>
+  //     <h3>{anime.year}</h3>
+  //     <h4>{anime.genre}</h4>
+  //   </li>;
+  // });
 
   const htmlLi = filteredAnime.map((anime, i) => {
     let colorText = null;
     if (anime.year <= '1998') {
       colorText = 'red';
     }
+    let identifier = uuid(); //I need that both (key and id) have the same number! Is the only way that I know..
     return (
-      <li key={i} id={uuid()}>
-        <h2>{anime.title}</h2>
+      <li key={identifier} id={identifier}>
+        <h2 className="title">{anime.title}</h2>
+        <img
+          src={anime.img}
+          title="carátula del anime"
+          alt="carátula del anime"
+          onClick={handleFavorite}
+        ></img>
         <h3 className={colorText}>{anime.year}</h3>
         <h4>{anime.genre}</h4>
       </li>

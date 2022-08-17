@@ -1,15 +1,18 @@
 [ {
         "title": "Naruto",
         "year": "1998",
-        "genre": "action"
+        "genre": "action",
+        "img": "https://cdn.myanimelist.net/images/anime/13/17405.jpg"
     }, 
     {
         "title": "Darling in the Franxx",
         "year": "2000",
-        "genre": "mecha, love"
+        "genre": "mecha, love",
+        "img": "https://cdn.myanimelist.net/images/anime/1614/90408.jpg"
     },
     {
         "title": "Evangelion",
         "year": "1994",
-        "genre": "mecha, action"
+        "genre": "mecha, action",
+        "img": "https://cdn.myanimelist.net/images/anime/1404/98182.jpg"
     } ]
